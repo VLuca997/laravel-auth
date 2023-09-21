@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {//riempimento dati iniziali
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->string('framework');
+            $table->date('creation_date');
             $table->timestamps();
-        });
+        }); 
     }
-
+    
     /**
      * Reverse the migrations.
      */

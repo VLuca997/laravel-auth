@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller; // nostro import
 
-use App\Models\Project;
+use App\Models\Project; // import nostro model
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 
@@ -11,17 +12,22 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
-        //
+        $projects = Project::all();
     }
+    public function projects(){
+        return view('admin.project');
+    }
+    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.project.create');
     }
 
     /**
@@ -29,7 +35,8 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $formData = $request->all();
+        $project = Project::create($formData);
     }
 
     /**

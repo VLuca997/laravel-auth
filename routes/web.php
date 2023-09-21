@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 //import model
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProjectController;
 use Faker\Guesser\Name;
 
 /*
@@ -22,24 +23,20 @@ use Faker\Guesser\Name;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', function(){
-    return view('dashboard');
-});
+
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group( function ()  { //Raggruppiamo le rotte da proteggere / prefisso admin
         
-        Route::get('/dashboard' , [DashboardController::class, 'dashboard'])->name('dashboard');
-
+        Route::get('/dashboard' , [DashboardController::class, 'index'])->name('dashboard');
+        
         //cosi le proteggerei tutte: ( di quella categoria.)
         // Route::resource('posts' , PostController::class);
-});
-
-
-
-
-
+        Route::get('/project' , [ProjectController::class, 'projects'])->name('projects');
+    });
+    
+    
 
 require __DIR__.'/auth.php';
