@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {//riempimento dati iniziali
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title', 70);
             $table->text('description');
-            $table->string('framework');
-            $table->date('creation_date');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
+            $table->string('category', 50);
+            $table->string('languages', 255);
+            $table->string('project_status', 32);
             $table->timestamps();
-        }); 
+        });
     }
     
     /**

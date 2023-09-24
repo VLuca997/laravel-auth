@@ -13,13 +13,17 @@ class Project extends Model
      *
      * @var array<string>
      */
-    protected $fillable = [ // definit proprietà model 
-        'name',
-        'description',
-        'framework',
-        'creation_date',
+     protected $fillable = [  //definit proprietà model 
+            'title',
+            'description',
+            'start_date',
+            'end_date',
+            'category',
+            'lnaguages',
+            'project_status',
+            
     
-    ];
+        ];
 
 
     //$guarded per i non mass assignment

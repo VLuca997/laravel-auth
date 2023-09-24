@@ -25,6 +25,7 @@ Route::get('/', function () {
 });
 
 
+
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
@@ -34,7 +35,7 @@ Route::middleware(['auth', 'verified'])
         
         //cosi le proteggerei tutte: ( di quella categoria.)
         // Route::resource('posts' , PostController::class);
-        Route::get('/project' , [ProjectController::class, 'projects'])->name('projects');
+        Route::resource('projects', ProjectController::class);
     });
     
     

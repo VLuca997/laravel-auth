@@ -24,7 +24,7 @@
                                 <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.projects') }}">sassone</a>
+                                <a class="nav-link" href="{{ route('admin.projects.index') }}">sassone</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Link 3</a>

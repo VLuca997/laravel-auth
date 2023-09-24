@@ -2,6 +2,9 @@
 
 namespace App\Http\Requests;
 
+//helper
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateProjectRequest extends FormRequest
@@ -11,7 +14,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**

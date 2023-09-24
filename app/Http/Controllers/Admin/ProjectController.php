@@ -16,18 +16,19 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        return view('admin.index' , compact('projects'));
     }
-    public function projects(){
-        return view('admin.project');
-    }
-    
+    // public function projects(){
+    //     return view('admin.project');
+    // }
+        
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('admin.project.create');
+        return view('admin.create');
     }
 
     /**
