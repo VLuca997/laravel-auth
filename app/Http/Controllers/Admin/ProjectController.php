@@ -36,8 +36,9 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        $formData = $request->all();
+        $formData = $request->validated();
         $project = Project::create($formData);
+        return redirect()->route('admin.projects.index');
     }
 
     /**
@@ -45,7 +46,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.show' , compact('project'));
     }
 
     /**
@@ -53,7 +54,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.edit', compact('project'));
     }
 
     /**
@@ -61,7 +62,15 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $formData = $request->validated();
+        $project->update([
+            'title'=> $formData['title'],
+            'description'=> $formData['description'],
+            'category'=> $formData['category'],
+        ]);
+
+        return redirect()->route('admin.projects.index');
+        
     }
 
     /**
@@ -69,6 +78,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project = Project::destroy($project->id);
+        return redirect()->route('admin.projects.index');
     }
 }

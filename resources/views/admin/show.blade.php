@@ -3,5 +3,15 @@
 @section('page-title', 'Project')
 
 @section('main-content')
-    <h2>PROJECT</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <h3>
+                {{$project->title}}
+            </h3>
+        </div>
+    </div>
+</div>
 @endsection

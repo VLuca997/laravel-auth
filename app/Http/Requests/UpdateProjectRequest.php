@@ -24,8 +24,10 @@ class UpdateProjectRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+        return [// validazione Backend
+            'title' => 'min:0|max:255',
+            'description'=> 'min:0|max:255',
+            'category'=> 'min:0|max:255',
         ];
     }
 }
